@@ -22,7 +22,7 @@ Here is a list of the formulae available in this tap:
 To install a formula from this tap, use:
 
 ```sh
-brew install Zarox28/homebrew-Zarox28/`<formula>`
+brew install Zarox28/homebrew-Zarox28/<formula>
 ```
 
 Replace `<formula>` with the name of the formula you want to install.
