@@ -1,4 +1,4 @@
-cask "Activate" do
+cask "activate" do
   version "1.0.0"
   sha256 "34248b16a5cbe9b9d800c86e83dbd7ce2e3285737df5df872a735e510c465a25"
 
