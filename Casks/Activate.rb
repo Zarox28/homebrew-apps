@@ -4,7 +4,7 @@ cask "activate" do
 
   url "https://github.com/Zarox28/Activate/releases/download/v#{version}/Activate.dmg"
   name "Activate"
-  desc "Activate MacOS is a playful macOS app that mimics the Windows activation message."
+  desc "Activate MacOS is a playful macOS app that mimics the Windows activation message"
   homepage "https://github.com/Zarox28/Activate"
 
   app "Activate.app"
