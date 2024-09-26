@@ -9,7 +9,7 @@ This repository provides additional formulae for Homebrew, the package manager f
 To use this tap, you need to add it to your Homebrew configuration. You can do this with the following command:
 
 ```sh
-brew tap Zarox28/homebrew-apps
+brew tap zarox28/homebrew-apps
 ```
 
 ## Available Formulae
