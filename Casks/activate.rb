@@ -1,6 +1,6 @@
 cask "activate" do
-  version "1.1.0"
-  sha256 "5741ba5f882d2e9a4af66c0658072695553d3fe4d45761cbf5cdce324c018fd8"
+  version "1.2.0"
+  sha256 "192e0ed47b9d6b78088ffc5d731764a6929dce78434fc4d23faee9992b27b087"
 
   url "https://github.com/Zarox28/Activate/releases/download/v#{version}/Activate.dmg"
   name "Activate"
