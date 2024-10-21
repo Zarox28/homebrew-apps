@@ -9,6 +9,8 @@ cask "safelock" do
 
   app "SafeLock.app"
 
+  depends_on formula: "ffmpeg"
+
   zap trash: [
     "~/Library/Application Support/SafeLock",
     "~/Library/Preferences/com.Zarox28.SafeLock.plist",
