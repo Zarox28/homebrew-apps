@@ -18,6 +18,7 @@ Here is a list of the formulae available in this tap:
 
 - `Activate`: Activate MacOS is a playful macOS app that mimics the Windows activation message.
 - `SafeLock`: SafeLock is a simple macOS app that locks your screen and monitors for any unauthorized access.
+- `ADBenQ`: ADBenQ is a app that allows you to control your BenQ monitor from your Mac.
 - `...`: More formulae will be added soon!
 
 To install a formula from this tap, use:
