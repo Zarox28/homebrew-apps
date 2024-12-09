@@ -8,9 +8,15 @@ class Adbenq < Formula
   depends_on "scrcpy"
   depends_on "python3"
 
-  def install
-    system "brew", "install", "--cask", "android-platform-tools" unless which("adb")
+  def caveats
+    <<~EOS
+      You need to have adb installed on your system.
+      You can install it via Homebrew:
+        brew install --cask android-platform-tools
+    EOS
+  end
 
+  def install
     bin.install "adbenq"
   end
 end
