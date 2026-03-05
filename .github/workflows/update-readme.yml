@@ -16,8 +16,6 @@ jobs:
 
       - name: Update README
         run: |
-          cd tap
-
           # Collect all formulae
           FORMULAE_LIST=""
           if [ -d "Formula" ]; then
