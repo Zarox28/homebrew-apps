@@ -6,80 +6,83 @@ on:
       - main
 
 jobs:
-  name: Update README
-  runs-on: ubuntu-latest
-  permissions:
-    contents: write
-  steps:
-    - name: Update README
-      run: |
-        cd tap
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-        # Collect all formulae
-        FORMULAE_LIST=""
-        if [ -d "Formula" ]; then
-          for file in Formula/*.rb; do
-            [ -f "$file" ] || continue
-            name=$(basename "$file" .rb)
-            desc=$(grep -m1 'desc ' "$file" | sed 's/.*desc "\(.*\)"/\1/')
-            FORMULAE_LIST="${FORMULAE_LIST}- \`${name}\`: ${desc}\n"
-          done
-        fi
+      - name: Update README
+        run: |
+          cd tap
 
-        # Collect all casks
-        CASKS_LIST=""
-        if [ -d "Casks" ]; then
-          for file in Casks/*.rb; do
-            [ -f "$file" ] || continue
-            name=$(basename "$file" .rb)
-            desc=$(grep -m1 'desc ' "$file" | sed 's/.*desc "\(.*\)"/\1/')
-            CASKS_LIST="${CASKS_LIST}- \`${name}\`: ${desc}\n"
-          done
-        fi
+          # Collect all formulae
+          FORMULAE_LIST=""
+          if [ -d "Formula" ]; then
+            for file in Formula/*.rb; do
+              [ -f "$file" ] || continue
+              name=$(basename "$file" .rb)
+              desc=$(grep -m1 'desc ' "$file" | sed 's/.*desc "\(.*\)"/\1/')
+              FORMULAE_LIST="${FORMULAE_LIST}- \`${name}\`: ${desc}\n"
+            done
+          fi
 
-        # Rebuild the README
-        cat > README.md <<EOF
-        # Homebrew Tap for [Zarox28](http://github.com/Zarox28)
-        Welcome to the Homebrew tap for **Zarox28**!
-        This repository provides additional formulae for Homebrew, the package manager for macOS and Linux.
+          # Collect all casks
+          CASKS_LIST=""
+          if [ -d "Casks" ]; then
+            for file in Casks/*.rb; do
+              [ -f "$file" ] || continue
+              name=$(basename "$file" .rb)
+              desc=$(grep -m1 'desc ' "$file" | sed 's/.*desc "\(.*\)"/\1/')
+              CASKS_LIST="${CASKS_LIST}- \`${name}\`: ${desc}\n"
+            done
+          fi
 
-        ## Installation
-        To use this tap, you need to add it to your Homebrew configuration. You can do this with the following command:
-        \`\`\`sh
-        brew tap zarox28/apps
-        \`\`\`
+          # Rebuild the README
+          cat > README.md <<EOF
+          # Homebrew Tap for [Zarox28](http://github.com/Zarox28)
+          Welcome to the Homebrew tap for **Zarox28**!
+          This repository provides additional formulae for Homebrew, the package manager for macOS and Linux.
 
-        ## Available Formulae
-        Here is a list of the formulae available in this tap:
+          ## Installation
+          To use this tap, you need to add it to your Homebrew configuration. You can do this with the following command:
+          \`\`\`sh
+          brew tap zarox28/apps
+          \`\`\`
 
-        $(echo -e "$FORMULAE_LIST")
-        ## Available Casks
-        Here is a list of the casks available in this tap:
+          ## Available Formulae
+          Here is a list of the formulae available in this tap:
 
-        $(echo -e "$CASKS_LIST")
-        To install from this tap, use:
-        \`\`\`sh
-        brew install zarox28/apps/<formula>
-        \`\`\`
-        Replace \`<formula>\` with the name of the formula or cask you want to install.
+          $(echo -e "$FORMULAE_LIST")
+          ## Available Casks
+          Here is a list of the casks available in this tap:
 
-        ## Issues
-        If you encounter any issues or have questions, please open an issue on this repository. I will do my best to help you out!
+          $(echo -e "$CASKS_LIST")
+          To install from this tap, use:
+          \`\`\`sh
+          brew install zarox28/apps/<formula>
+          \`\`\`
+          Replace \`<formula>\` with the name of the formula or cask you want to install.
 
-        ## Author
-        This tap is maintained by [Zarox28](http://github.com/Zarox28).
+          ## Issues
+          If you encounter any issues or have questions, please open an issue on this repository. I will do my best to help you out!
 
-        Happy brewing!
-        EOF
+          ## Author
+          This tap is maintained by [Zarox28](http://github.com/Zarox28).
 
-    - name: Commit and push changes
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add README.md
-        if git diff --staged --quiet; then
-          echo "No changes to README.md"
-        else
-          git commit -m "docs: update README.md"
-          git push
-        fi
+          Happy brewing!
+          EOF
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --staged --quiet; then
+            echo "No changes to README.md"
+          else
+            git commit -m "docs: update README.md"
+            git push
+          fi
