@@ -1,18 +1,18 @@
 class Watermark < Formula
   desc "Interactive CLI tool to add watermarks to images and PDF files"
   homepage "https://github.com/Zarox28/Watermark"
-  version "0.0.8"
+  version "0.0.9"
   license "AGPL-3.0-only"
 
   on_macos do
     on_intel do
-      url "https://github.com/Zarox28/Watermark/releases/download/v0.0.8/watermark-darwin-amd64"
-      sha256 "c589ebbdd955394e29f50e0466be6fe7ad259ae455ebc0f186affdb30443ae49"
+      url "https://github.com/Zarox28/Watermark/releases/download/v0.0.9/watermark-darwin-amd64"
+      sha256 "846e3630c9eb27bf08f8475daae64fe886f831560b7166988f9cfa5731edc2dc"
     end
 
     on_arm do
-      url "https://github.com/Zarox28/Watermark/releases/download/v0.0.8/watermark-darwin-arm64"
-      sha256 "3ab91da5e2b48b2a3b7b5fcffa32342f58b86909ed8790d501e07981f5c3c0d4"
+      url "https://github.com/Zarox28/Watermark/releases/download/v0.0.9/watermark-darwin-arm64"
+      sha256 "add8fc0b125a5389c12df2b20d2bff000455c13326d5f5fa8905ccb51f652bfb"
     end
   end
 
